@@ -1,7 +1,6 @@
 - hosts: localhost
   connection: local
   become: true
-
   tasks:
   - name: Install htop
     apt:
@@ -9,4 +8,7 @@
   - name: Install cmatrix
     apt:
       name: cmatrix
+ - name: Install tcpstat
+    apt:
+      name: tcpstat
 
