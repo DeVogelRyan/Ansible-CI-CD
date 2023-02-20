@@ -8,7 +8,7 @@
   - name: Install cmatrix
     apt:
       name: cmatrix
- - name: Install tcpstat
+  - name: Install tcpstat
     apt:
       name: tcpstat
 
