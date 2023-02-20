@@ -21,18 +21,19 @@ jobs:
     runs-on: self-hosted
 
     # Steps represent a sequence of tasks that will be executed as part of the job
+   
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
-      - name: Set up Python
-        uses: actions/setup-python@v1
+
+      # Runs a single command using the runners shell
+      - name: copy file via ssh password
+        uses: actions/checkout@v3
         with:
-         python-version: 3.9.2
-      - name: Install dependencies
-        run: |
-         python -m pip install --upgrade pip
-         pip install ansible==2.9.2 requests
-      - name: run exporters playbook
-        run: |
-         ansible-playbook -i inventory playbook.yml
+          username: ${{ secrets.USERNAME }}
+          server: 91.176.59.136
+          port: 22
+          ssh_private_key: ${{ secrets.KEY }}
+          local_path: ./*
+          remote_path: $Home
 
