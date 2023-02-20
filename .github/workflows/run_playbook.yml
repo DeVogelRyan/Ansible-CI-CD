@@ -30,7 +30,7 @@ jobs:
       - name: Copy files
         uses: SamKirkland/FTP-Deploy-Action@4.0.0
         with:
-          host: ${{ secrets.IP }}
+          server: ${{ secrets.IP }}
           username: ${{ secrets.USERNAME }}
           password: ${{ secrets.PASSWORD }}
           port: 22
