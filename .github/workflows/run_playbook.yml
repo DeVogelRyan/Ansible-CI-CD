@@ -27,6 +27,6 @@ jobs:
       - name: Play Ansible Playbook
         run: |
           ansible-playbook playbook.yml
-          cd /home/Ansible-CI-CD/
+          cd /home/debian/Ansible-CI-CD/
           git pull
          
