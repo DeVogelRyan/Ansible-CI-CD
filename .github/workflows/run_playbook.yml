@@ -33,5 +33,5 @@ jobs:
           server: ${{ secrets.IP }}
           username: ${{ secrets.USERNAME }}
           password: ${{ secrets.PASSWORD }}
-          server-dir: /home
+          server-dir: /home/
 
