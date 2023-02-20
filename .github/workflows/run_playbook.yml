@@ -16,19 +16,14 @@ on:
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "build"
-  build:
+  validate-yaml:
     # The type of runner that the job will run on
     runs-on: self-hosted
 
     # Steps represent a sequence of tasks that will be executed as part of the job
-   
     steps:
+      - uses: actions/checkout@v3
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - name: Play Ansible Playbook
-        uses: actions/checkout@v3
-        with:
-          playbook: playbook.yml
-        env:
-          ANSIBLE_HOST_KEY_CHECKING: 'false'
-          ANSIBLE_DEPRECATION_WARNINGS: 'false'
+        run: yamllint playbook.yml
          
