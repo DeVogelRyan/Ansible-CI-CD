@@ -6,7 +6,7 @@
   - name: Install htop
     apt:
       name: htop
-  - name: Install tcpstat
+  - name: Install tcpstat for tcp listening
     apt:
       name: tcpstat
 
