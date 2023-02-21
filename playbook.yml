@@ -15,6 +15,6 @@
       state: latest
   - name: "Copy webpages"
     copy:
-      content: "<h1> WebPage </h1>"
+      content: "<h1> WebPage1 </h1>"
       dest: "/var/www/html/index.html"
 
