@@ -10,9 +10,11 @@
     apt:
       name: tcpstat
   - name: Install apache2
-    apt: name=apache2 update_cache=yes state=latest
-  
-  handlers:
-    - name: restart apache2
-      service: name=apache2 state=restarted
+    apt: 
+      name: apache2 
+      state: latest
+  - name: "Copy webpages"
+    copy:
+      content: "<h1> WebPage </h1>"
+      dest: "/var/www/html/index.html"
 
