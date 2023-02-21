@@ -9,7 +9,7 @@
   - name: Install tcpstat for tcp listening
     apt:
       name: tcpstat
-   - name: Install Apache
+   - name: Install Apache for webserver
     apt:
       name: apache2
 
