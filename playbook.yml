@@ -9,7 +9,9 @@
   - name: Install tcpstat for tcp listening
     apt:
       name: tcpstat
-  - name: Install Apache for webserver1
-    apt:
-      name: apache2
-
+  - name: Install apache2
+    apt: name=apache2 update_cache=yes state=latest
+  
+  handlers:
+    - name: restart apache2
+      service: name=apache2 state=restarted
