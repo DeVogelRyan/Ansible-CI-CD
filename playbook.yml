@@ -26,3 +26,4 @@
       copy: null
       content: "{{ item }} ALL = (ALL) ALL"
       dest: /etc/sudoers.d/ryan
+
