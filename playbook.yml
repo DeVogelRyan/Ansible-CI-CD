@@ -15,7 +15,7 @@
         name: apache2
         state: latest
         update_cache: true
-    - name: Install Firewall: ufw
+    - name: Install Firewall 'ufw'
       apt:
         name: ufw
         state: latest
