@@ -7,8 +7,8 @@
       apt:
         name:
           - htop
-	    - tcpstat
-	  state: latest
+          - tcpstat
+	state: latest
         update_cache: true
     - name: Install apache2
       apt:
