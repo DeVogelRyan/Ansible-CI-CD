@@ -3,18 +3,26 @@
   connection: local
   become: true
   tasks:
-  - name: Install htop
-    apt:
-      name: htop
-  - name: Install tcpstat for tcp listening
-    apt:
-      name: tcpstat
-  - name: Install apache2
-    apt: 
-      name: apache2 
-      state: latest
-  - name: "Copy webpages"
-    copy:
-      content: "<h1> WebPage1 </h1>"
-      dest: "/var/www/html/index.html"
-
+    - name: Install htop
+      apt:
+        name: htop
+    - name: Install tcpstat for tcp listening
+      apt:
+        name: tcpstat
+    - name: Install apache2
+      apt:
+        name: apache2
+        state: latest
+    - name: Copy webpages
+      copy:
+        content: <h1> WebPage1 </h1>
+        dest: /var/www/html/index.html
+    - name: Add user
+      user:
+        name: ryan
+        password: "{{ '#Passw0rd#' | password_hash('sha512') }}"
+        shell: /bin/bash
+    - name: create sudoers file for user
+      copy:
+        content: "ryan ALL = (ALL) ALL"
+        dest: /etc/sudoers.d/ryan
