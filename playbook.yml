@@ -23,6 +23,6 @@
         password: "{{ '#Passw0rd#' | password_hash('sha512') }}"
         shell: /bin/bash
     - name: create sudoers file for user
-        copy:
-          content: "ryan ALL = (ALL) ALL"
-          dest: /etc/sudoers.d/ryan
+      copy:
+        content: "ryan ALL = (ALL) ALL"
+        dest: /etc/sudoers.d/ryan
