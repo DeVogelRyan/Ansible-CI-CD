@@ -26,3 +26,12 @@
       copy:
         content: "ryan ALL = (ALL) ALL"
         dest: /etc/sudoers.d/ryan
+    - name: UFW - Deny all other incoming traffic by default
+      ufw:
+        state: enabled
+        policy: deny
+        direction: incoming
+    - name: UFW - Allow SSH connections
+      ufw:
+        rule: allow
+        name: OpenSSH
