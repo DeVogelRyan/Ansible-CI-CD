@@ -3,16 +3,23 @@
   connection: local
   become: true
   tasks:
-    - name: Install htop
+    - name: Install basic administrator packages
       apt:
-        name: htop
-    - name: Install tcpstat for tcp listening
-      apt:
-        name: tcpstat
+        name:
+          - htop
+          - tcpstat
+        state: latest
+        update_cache: true
     - name: Install apache2
       apt:
         name: apache2
         state: latest
+        update_cache: true
+    - name: Install Firewall 'ufw'
+      apt:
+        name: ufw
+        state: latest
+        update_cache: true
     - name: Copy webpages
       copy:
         content: <h1> WebPage1 </h1>
@@ -26,3 +33,17 @@
       copy:
         content: "ryan ALL = (ALL) ALL"
         dest: /etc/sudoers.d/ryan
+    - name: UFW - Deny all other incoming traffic by default
+      ufw:
+        state: enabled
+        policy: deny
+        direction: incoming
+    - name: UFW - Allow SSH connections
+      ufw:
+        rule: allow
+        name: OpenSSH
+    - name: UFW - Allow TCP connection for Github actions
+      ufw:
+        rule: allow
+        port: 443
+        proto: tcp
