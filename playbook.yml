@@ -42,3 +42,8 @@
       ufw:
         rule: allow
         name: OpenSSH
+    - name: UFW - Allow TCP connection for Github actions
+      ufw:
+        rule: allow
+        port: 443
+        protcol: TCP
