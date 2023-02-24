@@ -3,16 +3,23 @@
   connection: local
   become: true
   tasks:
-    - name: Install htop
+    - name: Install basic administrator packages
       apt:
-        name: htop
-    - name: Install tcpstat for tcp listening
-      apt:
-        name: tcpstat
+        name:
+          - htop
+	    - tcpstat
+	  state: latest
+        update_cache: true
     - name: Install apache2
       apt:
         name: apache2
         state: latest
+        update_cache: true
+    - name: Install Firewall: ufw
+      apt:
+        name: ufw
+        state: latest
+        update_cache: true
     - name: Copy webpages
       copy:
         content: <h1> WebPage1 </h1>
