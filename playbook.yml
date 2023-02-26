@@ -8,6 +8,7 @@
         name:
           - htop
           - tcpstat
+          - git
         state: latest
         update_cache: true
     - name: Install apache2
@@ -15,14 +16,9 @@
         name: apache2
         state: latest
         update_cache: true
-    - name: Install Firewall 'ufw'
-      apt:
-        name: ufw
-        state: latest
-        update_cache: true
     - name: Copy webpages
       copy:
-        content: <h1> WebPage1 </h1>
+        content: "<h1> WebPage1 - Apache </h1>"
         dest: /var/www/html/index.html
     - name: Add user
       user:
@@ -33,6 +29,11 @@
       copy:
         content: "ryan ALL = (ALL) ALL"
         dest: /etc/sudoers.d/ryan
+    - name: Install Firewall 'ufw'
+      apt:
+        name: ufw
+        state: latest
+        update_cache: true
     - name: UFW - Deny all other incoming traffic by default
       ufw:
         state: enabled
