@@ -8,6 +8,7 @@
         name:
           - htop
           - tcpstat
+          - git
         state: latest
         update_cache: true
     - name: Install apache2
