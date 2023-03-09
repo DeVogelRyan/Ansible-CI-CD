@@ -18,7 +18,7 @@
         update_cache: true
     - name: Copy webpages
       copy:
-        content: "<h1> WebPage1 - Apache v2 - Demo </h1>"
+        content: "<h1> WebPage1 - NetwerkDemo 09/03 </h1>"
         dest: /var/www/html/index.html
     - name: Add user
       user:
