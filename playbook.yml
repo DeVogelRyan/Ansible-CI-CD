@@ -20,15 +20,6 @@
       copy:
         content: "<h1> WebPage1 - NetwerkDemo 09/03 </h1>"
         dest: /var/www/html/index.html
-    - name: Add user
-      user:
-        name: ryan
-        password: "{{ '#Passw0rd#' | password_hash('sha512') }}"
-        shell: /bin/bash
-    - name: create sudoers file for user
-      copy:
-        content: "ryan ALL = (ALL) ALL"
-        dest: /etc/sudoers.d/ryan
     - name: Install Firewall 'ufw'
       apt:
         name: ufw
